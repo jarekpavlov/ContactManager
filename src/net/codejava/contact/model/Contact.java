@@ -14,7 +14,7 @@ public class Contact {
 
 		
 	public Contact( String name, String email, String adress, String phone) {
-
+		
 		this.name = name;
 		this.email = email;
 		this.adress = adress;
@@ -62,5 +62,13 @@ public class Contact {
 		// TODO Auto-generated method stub
 		return name;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Contact [id=" + id + ", name=" + name + ", email=" + email + ", adress=" + adress + ", phone=" + phone
+				+ "]";
+	}
+	
 
 }
