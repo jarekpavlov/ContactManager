@@ -5,9 +5,12 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
+import javax.swing.tree.TreePath;
+
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.jdbc.core.RowMapper;
 
 import net.codejava.contact.model.Contact;
 
@@ -55,15 +58,30 @@ public class ContactDAOImpl implements ContactDAO {
 	}
 
 	@Override
-	public Contact delete(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+	public int delete(Integer id) {
+		String sql = "DELETE FROM Contact WHERE contact_id="+id;
+		
+		return jdbcTemplate.update(sql);
 	}
 
 	@Override
 	public java.util.List<Contact> List() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "SELECT * FROM Contact ";
+		RowMapper<Contact> rowMapper = new RowMapper<Contact>() {
+
+			@Override
+			public Contact mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Integer id = rs.getInt("contact_id");
+				String name=rs.getString("name");
+				String email=rs.getString("email");
+				String adress=rs.getString("adress");
+				String phone=rs.getString("phone");
+				return new Contact(id,name,email,adress,phone);
+			}
+		};
+		
+		
+		return	jdbcTemplate.query(sql,rowMapper);
 	}
 
 }
