@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>ContactManager</title>
+<title>Contact Manager</title>
 </head>
 <body>
-   <h1>New Contact Application</h1>
+Contact Manager
 </body>
 </html>

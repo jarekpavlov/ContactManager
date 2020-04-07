@@ -33,7 +33,7 @@ public DataSource getDataSource() {
 @Bean 
 public ViewResolver getViewResolver() {
 	InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-	resolver.setPrefix("/Web-INF/");
+	resolver.setPrefix("/WEB-INF/views/");
 	resolver.setSuffix(".jsp");
 	return resolver;
 }
