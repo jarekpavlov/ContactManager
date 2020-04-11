@@ -16,7 +16,7 @@
          <th>No</th>
          <th>Name</th>
          <th>Email</th>
-         <th>Address</th>
+         <th>Address</th>   
          <th>Phone</th>
          <th>Action</th>
       </tr>
@@ -27,6 +27,11 @@
        <td>${contact.email}</td> 
        <td>${contact.adress}</td> 
        <td>${contact.phone}</td> 
+       <td>
+       <a href="edit?id=${contact.id}">Edit</a>
+       &nbsp;&nbsp;
+       <a href="delete?id=${contact.id}">Delete</a>
+       </td>
         
        </tr>
    </c:forEach>
